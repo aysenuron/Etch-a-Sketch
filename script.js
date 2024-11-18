@@ -2,8 +2,6 @@ const btn = document.querySelector(".btn");
 
 const container = document.querySelector(".container");
 
-const color = ["red", "blue", "green", "yellow"];
-
 function createDiv (number) {
 
     container.innerHTML = "";
@@ -16,15 +14,14 @@ function createDiv (number) {
         newDiv.classList.add("div-block");
         newDiv.style.width = `${blockSize}%`;
         newDiv.style.height = `${blockSize}%`;
+        newDiv.style.backgroundColor = "rgba(0, 0, 0, 0)";
         container.appendChild(newDiv);
 
         newDiv.addEventListener("mouseover", function() {
-            newDiv.style.backgroundColor = color[(Math.floor(Math.random() * color.length))];
+            const randomColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+            newDiv.style.backgroundColor = randomColor;
         });
         
-        newDiv.addEventListener("mouseout", function() {
-            newDiv.style.backgroundColor = color[(Math.floor(Math.random() * color.length))];
-        });
     }
 }
 
